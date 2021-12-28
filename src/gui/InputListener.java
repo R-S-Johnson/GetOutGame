@@ -19,7 +19,7 @@ public class InputListener implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyChar();
-        UserInput ui;
+        UserInput ui = null;
         int value = 0;
 
         if (key == 'w') {
@@ -47,6 +47,8 @@ public class InputListener implements KeyListener {
         else if (key == KeyEvent.VK_ESCAPE) {
             ui = UserInput.exit;
         }
+        controller.keyDown(ui, value);
+        parent.repaint();
     }
 
 
