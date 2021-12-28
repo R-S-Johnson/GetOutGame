@@ -9,7 +9,7 @@ public class GetOutGame extends JFrame{
         Controller controller = new Controller();
         add(controller.getPanel());
 
-        KeyListener keyListener = new InputListener();
+        KeyListener keyListener = new InputListener(this, controller);
         addKeyListener(keyListener);
 
         setSize(Constants.VIEW_WIDTH, Constants.VIEW_HEIGHT);
@@ -18,6 +18,11 @@ public class GetOutGame extends JFrame{
         setFocusable(true);
 
         controller.start();
+    }
+
+    public static void main(String[] args) {
+        GetOutGame a = new GetOutGame();
+        a.repaint();
     }
 
 }

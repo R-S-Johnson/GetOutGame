@@ -107,17 +107,17 @@ public class MapGenerator {
     /**
      * Main method used for testing generation
      */
-    public static void main(String[] args) {
-        Map map = new Map(3, 3);
-        MapGenerator gen = new MapGenerator(map);
-        gen.setDifficulty(30);
-        System.out.println(gen.generate().toString());
-        for (int i = 0; i < map.getLength(); i++) {
-            for (int j = 0; j < map.getWidth(); j++) {
-                map.activate(i, j);
-                System.out.println(map.toString()); // TODO Always remember to turn off hasMoved in a final loop through
-            }
-        }
-        System.out.println(map.toString());
-    }
+    // public static void main(String[] args) {
+    //     Map map = new Map(3, 3);
+    //     MapGenerator gen = new MapGenerator(map);
+    //     gen.setDifficulty(30);
+    //     System.out.println(gen.generate().toString());
+    //     for (int i = 0; i < map.getLength(); i++) {
+    //         for (int j = 0; j < map.getWidth(); j++) {
+    //             map.activate(i, j);
+    //             System.out.println(map.toString()); // TODO Always remember to turn off hasMoved in a final loop through
+    //         }
+    //     }
+    //     System.out.println(map.toString());
+    // }
 }
