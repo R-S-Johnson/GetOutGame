@@ -4,10 +4,14 @@ import generation.Map;
 
 public class StateTitle implements GameState{
 
+    Controller controller;
+
+    MapPanel panel;
+
     @Override
     public void start(Controller controller, MapPanel mapPanel) {
-        // TODO Auto-generated method stub
-        
+        this.controller = controller;
+        this.panel = mapPanel;
     }
 
     /**
@@ -23,11 +27,12 @@ public class StateTitle implements GameState{
     public void setMapConfig(Map map) {}
 
 
-    
+
     @Override
     public void keyDown(UserInput key, int value) {
-        // TODO Auto-generated method stub
-        
+        if (key == UserInput.startGame) {
+            controller.switchFromTitleToGenerating(value);
+        }        
     }
     
 }
