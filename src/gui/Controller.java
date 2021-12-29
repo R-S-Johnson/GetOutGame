@@ -1,5 +1,7 @@
 package gui;
 
+import generation.Map;
+
 public class Controller {
     
     // States for the game
@@ -32,6 +34,38 @@ public class Controller {
 
     public void keyDown(UserInput key, int value) {
         currentState.keyDown(key, value);
+    }
+
+
+    /**
+     * methods used to switch the state
+     * of the game
+     */
+    public void switchFromTitleToGenerating(int difficulty) {
+        currentState = states[1];
+        currentState.setDifficulty(difficulty);
+        currentState.start(this, panel);
+    }
+
+    public void switchFromGeneratingToPlaying(Map map) {
+        currentState = states[2];
+        currentState.setMapConfig(map);
+        currentState.start(this, panel);
+    }
+
+    public void switchFromPlayingToWinning() {
+        currentState = states[3];
+        currentState.start(this, panel);
+    }
+
+    public void switchFromPlayingToLoosing() {
+        currentState = states[4];
+        currentState.start(this, panel);
+    }
+
+    public void switchToTitle() {
+        currentState = states[0];
+        currentState.start(this, panel);
     }
 
 }

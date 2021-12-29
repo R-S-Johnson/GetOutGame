@@ -36,7 +36,7 @@ public class InputListener implements KeyListener {
         }
         else if (49 <= key && key <= 53) {
             value = key - 48;
-            System.out.println(value);
+            ui = UserInput.startGame;
         }
         else if (key == '-') {
             ui = UserInput.zoomout;

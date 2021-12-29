@@ -10,18 +10,20 @@ public class StateTitle implements GameState{
         
     }
 
+    /**
+     * not needed for title
+     */
     @Override
-    public void setDifficulty(int difficulty) {
-        // TODO Auto-generated method stub
-        
-    }
+    public void setDifficulty(int difficulty) {}
 
+    /**
+     * not needed for title
+     */
     @Override
-    public void setMapConfig(Map map) {
-        // TODO Auto-generated method stub
-        
-    }
+    public void setMapConfig(Map map) {}
 
+
+    
     @Override
     public void keyDown(UserInput key, int value) {
         // TODO Auto-generated method stub
