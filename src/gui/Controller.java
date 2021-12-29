@@ -14,12 +14,13 @@ public class Controller {
     MapPanel panel;
 
     Controller() {
-        states = new GameState[5];
+        states = new GameState[6];
         states[0] = new StateTitle();
         states[1] = new StateGeneration();
         states[2] = new StatePlaying();
         states[3] = new StateWinning();
         states[4] = new StateLoosing();
+        states[5] = new StateInstructions();
         currentState = states[0];
         panel = new MapPanel();
     }
@@ -44,6 +45,11 @@ public class Controller {
     public void switchFromTitleToGenerating(int difficulty) {
         currentState = states[1];
         currentState.setDifficulty(difficulty);
+        currentState.start(this, panel);
+    }
+
+    public void switchFromTitleToInstructions() {
+        currentState = states[5];
         currentState.start(this, panel);
     }
 

@@ -9,6 +9,8 @@ public class GetOutGame extends JFrame{
         Controller controller = new Controller();
         add(controller.getPanel());
 
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         KeyListener keyListener = new InputListener(this, controller);
         addKeyListener(keyListener);
 
