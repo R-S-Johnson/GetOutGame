@@ -32,7 +32,20 @@ public class SimpleScreens {
         bufferGraphics.setFont(new Font("TimesRoman", Font.BOLD, 48));
         bufferGraphics.setColor(Color.black);
         String title = "Get Out!";
-        bufferGraphics.drawString(title, SIZE - bufferGraphics.getFontMetrics().stringWidth(title), Constants.MARGIN);
+        bufferGraphics.drawString(title, (SIZE - bufferGraphics.getFontMetrics().stringWidth(title))/2, Constants.MARGIN + 50);
+
+        // Write difficulty instructions
+        bufferGraphics.setFont(new Font("TimesRoman", Font.BOLD, 16));
+        String difficultyInstructions = "Select a difficulty";
+        String difficultyOptions = "(Press 1-5)";
+        int xPos = (SIZE - bufferGraphics.getFontMetrics().stringWidth(difficultyInstructions))/2;
+        bufferGraphics.drawString(difficultyInstructions, xPos, SIZE/2);
+        xPos = (SIZE - bufferGraphics.getFontMetrics().stringWidth(difficultyOptions))/2;
+        bufferGraphics.drawString(difficultyOptions, xPos, SIZE/2 + 22);
+
+        // Write instructions option
+        String instructions = "How to Play (I)";
+        bufferGraphics.drawString(instructions, Constants.MARGIN, SIZE - Constants.MARGIN - 10);
     }
 
 }

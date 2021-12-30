@@ -47,6 +47,9 @@ public class InputListener implements KeyListener {
         else if (key == KeyEvent.VK_ESCAPE) {
             ui = UserInput.exit;
         }
+        else if (key == 'i') {
+            ui = UserInput.instructions;
+        }
         controller.keyDown(ui, value);
         parent.repaint();
     }

@@ -14,7 +14,7 @@ public class GetOutGame extends JFrame{
         KeyListener keyListener = new InputListener(this, controller);
         addKeyListener(keyListener);
 
-        setSize(Constants.VIEW_WIDTH, Constants.VIEW_HEIGHT);
+        setSize(Constants.VIEW_WIDTH+22, Constants.VIEW_HEIGHT+22);
         setVisible(true);
 
         setFocusable(true);
