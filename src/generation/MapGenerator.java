@@ -1,5 +1,6 @@
 package generation;
 
+import gui.StateGeneration;
 
 /**
  * Given an empty map, is the job of the MapGenerator
@@ -8,7 +9,7 @@ package generation;
  * the maze (not set here) and the number of enemies.
  */
 
-public class MapGenerator {
+public class MapGenerator implements Runnable{
     
     // Map object to be edited
     Map map;
@@ -16,13 +17,16 @@ public class MapGenerator {
     // The given difficulty of the map, must be btwn 0 - 100
     int difficulty;
 
+    // State needed to allow generator to give map object over
+    StateGeneration state;
+
 
     /**
      * The only thing needed to initialize the
      * generator is an empty map object. The
      * difficulty will be set later
      */
-    MapGenerator(Map map) {
+    public MapGenerator(Map map) {
         this.map = map;
     }
 
@@ -33,20 +37,22 @@ public class MapGenerator {
         this.difficulty = difficulty;
     }
 
+    public void setState(StateGeneration s) {
+        state = s;
+    }
+
     /**
      * Main method for the generator. After generation
      * is done, this method returns the map object.
      */
     public Map generate() {
+        // TODO remove (testing)
+        System.out.println(Integer.toString(difficulty));
         for (int i = 0; i < map.getLength(); i++) {
             for (int j = 0; j < map.getWidth(); j++) {
                 int rand = Rando.randoRange(0, 100);
                 if (rand <= difficulty) {
-                    int[] position = {i, j};
-                    EnemyState virusTest = new Virus(map, position);
-                    int[] playerPositionTest = {0, 0};
-                    virusTest.setPlayerPosition(playerPositionTest);
-                    map.newEnemy(i, j, virusTest);
+                    map.newEnemy(i, j, null);
                 }
                 openRandomDoors(i, j);
             }
@@ -60,6 +66,8 @@ public class MapGenerator {
                 }
             }
         }
+        // TODO remove (testing)
+        System.out.println(map.toString());
         return map;
     }
 
@@ -100,6 +108,14 @@ public class MapGenerator {
         position[1] = Rando.randoRange(0, map.getWidth());
         map.setStartingPosition(position);
         map.clense(position[0], position[1]);
+    }
+
+
+
+    @Override
+    public void run() {
+        Map toReturn = generate();
+        state.setMapConfig(toReturn);
     }
 
 

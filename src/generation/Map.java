@@ -29,7 +29,7 @@ public class Map {
      * It only fills every space with a perfect cell. Adding enemies
      * happens in generation.
      */
-    Map(int l, int w) {
+    public Map(int l, int w) {
         length = l;
         width = w;
         map = new Cell[length][width];

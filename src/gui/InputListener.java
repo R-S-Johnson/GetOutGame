@@ -34,8 +34,10 @@ public class InputListener implements KeyListener {
         else if (key == 'd') {
             ui = UserInput.right;
         }
-        else if (49 <= key && key <= 53) {
+        else if ('1' <= key && key <= '5') {
             value = key - 48;
+            // TODO remove (testing)
+            System.out.println(Integer.toString(value));
             ui = UserInput.startGame;
         }
         else if (key == '-') {

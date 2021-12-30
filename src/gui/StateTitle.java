@@ -36,7 +36,10 @@ public class StateTitle implements GameState{
     public void keyDown(UserInput key, int value) {
         if (key == UserInput.startGame) {
             controller.switchFromTitleToGenerating(value);
-        }        
+        }
+        if (key == UserInput.instructions) {
+            controller.switchFromTitleToInstructions();
+        }
     }
     
 }

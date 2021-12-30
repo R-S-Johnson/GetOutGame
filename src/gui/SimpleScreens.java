@@ -1,6 +1,9 @@
 package gui;
 
 import java.awt.Graphics;
+
+import javax.swing.GrayFilter;
+
 import java.awt.Color;
 import java.awt.Font;
 
@@ -19,14 +22,7 @@ public class SimpleScreens {
         Graphics bufferGraphics = panel.getBufferGraphics();
 
         // Draw the background
-        bufferGraphics.setColor(Color.black);
-        bufferGraphics.fillRect(0, 0, SIZE, SIZE);
-
-        bufferGraphics.setColor(Color.red);
-        bufferGraphics.fillRect(Constants.MARGIN/2, Constants.MARGIN/2, SIZE - Constants.MARGIN, SIZE - Constants.MARGIN);
-
-        bufferGraphics.setColor(Color.white);
-        bufferGraphics.fillRect(Constants.MARGIN, Constants.MARGIN, SIZE - Constants.MARGIN*2, SIZE - Constants.MARGIN*2);
+        drawBackground(bufferGraphics);
 
         // Write title
         bufferGraphics.setFont(new Font("TimesRoman", Font.BOLD, 48));
@@ -46,6 +42,30 @@ public class SimpleScreens {
         // Write instructions option
         String instructions = "How to Play (I)";
         bufferGraphics.drawString(instructions, Constants.MARGIN, SIZE - Constants.MARGIN - 10);
+    }
+
+
+    public void drawLoadingScreen(MapPanel panel) {
+        Graphics bufferGraphics = panel.getBufferGraphics();
+
+        drawBackground(bufferGraphics);
+
+        // Write loading..
+        bufferGraphics.setFont(new Font("TimesRoman", Font.BOLD, 22));
+        bufferGraphics.setColor(Color.black);
+        String loading = "Loading map...";
+        bufferGraphics.drawString(loading, (SIZE - bufferGraphics.getFontMetrics().stringWidth(loading))/2, SIZE/2 + Constants.MARGIN);
+    }
+
+    private void drawBackground(Graphics g) {
+        g.setColor(Color.black);
+        g.fillRect(0, 0, SIZE, SIZE);
+
+        g.setColor(Color.red);
+        g.fillRect(Constants.MARGIN/2, Constants.MARGIN/2, SIZE - Constants.MARGIN, SIZE - Constants.MARGIN);
+
+        g.setColor(Color.white);
+        g.fillRect(Constants.MARGIN, Constants.MARGIN, SIZE - Constants.MARGIN*2, SIZE - Constants.MARGIN*2);
     }
 
 }

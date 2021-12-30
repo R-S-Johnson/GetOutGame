@@ -43,6 +43,9 @@ public class Controller {
      * of the game
      */
     public void switchFromTitleToGenerating(int difficulty) {
+        // TODO remove (testing)
+        System.out.println("switching to generating");
+        System.out.println(Integer.toString(difficulty));
         currentState = states[1];
         currentState.setDifficulty(difficulty);
         currentState.start(this, panel);
