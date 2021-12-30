@@ -2,8 +2,6 @@ package gui;
 
 import java.awt.Graphics;
 
-import javax.swing.GrayFilter;
-
 import java.awt.Color;
 import java.awt.Font;
 
