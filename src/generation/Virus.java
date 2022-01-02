@@ -46,9 +46,6 @@ public class Virus implements EnemyState{
         this.position = pos;        
     }
 
-    @Override
-    public void setPlayerPosition(int[] pos) {} // Not needed for the Virus
-
 
     /**
      * The virus tries to find an open door in its room,

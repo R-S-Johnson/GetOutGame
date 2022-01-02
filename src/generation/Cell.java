@@ -106,17 +106,6 @@ public class Cell {
         return false;
     }
 
-    // TODO old helper method
-    // /**
-    //  * Private method used to help changeDoorState simplify
-    //  */
-    // private boolean checkSameAndSwitch(Door og, Door change) {
-    //     if (og == change) {
-    //         return false;
-    //     }
-    //     og = change;
-    //     return true;
-    // }
 
     /**
      * Used to increment the count of a room if it has a bad

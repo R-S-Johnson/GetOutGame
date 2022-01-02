@@ -46,8 +46,6 @@ public class MapGenerator implements Runnable{
      * is done, this method returns the map object.
      */
     public Map generate() {
-        // TODO remove (testing)
-        System.out.println(Integer.toString(difficulty));
         for (int i = 0; i < map.getLength(); i++) {
             for (int j = 0; j < map.getWidth(); j++) {
                 int rand = Rando.randoRange(0, 100);
@@ -58,19 +56,21 @@ public class MapGenerator implements Runnable{
             }
         }
         setPlayerPosition();
-        // TODO this needs simplification (stop the double loop)
-        for (int i = 0; i < map.getLength(); i++) {
-            for (int j = 0; j < map.getWidth(); j++) {
-                if (!map.isGood(i, j)) {
-                    map.getEnemy(i, j).setPlayerPosition(map.getStartingPosition());
-                }
-            }
-        }
-        // TODO remove (testing)
-        System.out.println(map.toString());
+        setWinningPosition();
         return map;
     }
 
+
+    private void setWinningPosition() {
+        int[] position = map.getPlayerPosition();
+
+        while (position == map.getPlayerPosition()) {
+            position[0] = Rando.randoRange(0, map.getLength());
+            position[1] = Rando.randoRange(0, map.getWidth());
+        }
+        map.setWinningPosition(position);
+        map.clense(position[0], position[1]);
+    }
 
     /**
      * Randomly opens 25% of the doors
@@ -106,7 +106,7 @@ public class MapGenerator implements Runnable{
         // randomly generate a posiiton
         position[0] = Rando.randoRange(0, map.getLength());
         position[1] = Rando.randoRange(0, map.getWidth());
-        map.setStartingPosition(position);
+        map.setPlayerPosition(position);
         map.clense(position[0], position[1]);
     }
 

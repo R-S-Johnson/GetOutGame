@@ -22,11 +22,6 @@ public interface EnemyState {
     public void setPosition(int[] pos);
 
     /**
-     * set's the player's position
-     */
-    public void setPlayerPosition(int[] pos);
-
-    /**
      * Dictates the actions of the enemy during
      * the enemy turn
      */

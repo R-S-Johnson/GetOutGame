@@ -19,9 +19,6 @@ public class Hacker implements EnemyState{
     // Keeps track of the number of doors to change
     private int doorsToChange;
 
-    // Player position
-    private int[] playerPosition;
-
     // Has moved already this turn
     private boolean hasMoved;
 
@@ -56,11 +53,6 @@ public class Hacker implements EnemyState{
 
     public void setDoorsToChange(int doors) {
         doorsToChange = doors;
-    }
-
-    @Override
-    public void setPlayerPosition(int[] pos) {
-        this.playerPosition = pos;
     }
 
     
@@ -132,7 +124,7 @@ public class Hacker implements EnemyState{
         selectedCell[0] = Rando.randoRange(0, map.getLength());
         selectedCell[1] = Rando.randoRange(0, map.getWidth());
         // make sure it's uninhabitted
-        while (selectedCell == playerPosition || !map.isGood(selectedCell[0], selectedCell[1])) {
+        while (selectedCell == map.getPlayerPosition() || !map.isGood(selectedCell[0], selectedCell[1])) {
             selectedCell[0] = Rando.randoRange(0, map.getLength());
             selectedCell[1] = Rando.randoRange(0, map.getWidth());    
         }

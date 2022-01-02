@@ -15,9 +15,6 @@ public class Soldier implements EnemyState {
     // The current position of the Soldier
     private int[] position;
 
-    // The player's position the Soldier uses to track the player
-    private int[] playerPosition;
-
     // Keeps track of if the Soldier has acted yet this turn
     private boolean hasMoved;
 
@@ -49,11 +46,6 @@ public class Soldier implements EnemyState {
         position = pos;
     }
 
-    @Override
-    public void setPlayerPosition(int[] pos) {
-        this.playerPosition = pos;
-    }
-
 
     /**
      * if player is lined up with the soldier,
@@ -68,6 +60,7 @@ public class Soldier implements EnemyState {
 
     @Override
     public void act() {
+        int[] playerPosition = map.getPlayerPosition();
         // horizontally lined up
         if (playerPosition[0] == position[0]) {
             // soldier on the right

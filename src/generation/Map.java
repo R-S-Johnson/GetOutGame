@@ -20,8 +20,11 @@ public class Map {
     // Tells  is the map object is complete and ready to play in
     private boolean complete;
 
-    // Let's the game mechanics know where the starting position of the player is
-    private int[] startingPosition;
+    // The winning position of the map
+    private int[] winningPosition;
+
+    // Current position of the player
+    private int[] playerPosition;
 
     
     /**
@@ -94,11 +97,18 @@ public class Map {
         return width;
     }
 
-    public int[] getStartingPosition() {
-        return startingPosition;
+    public int[] getWinningPosition() {
+        return winningPosition;
     }
-    public void setStartingPosition(int[] p) {
-        startingPosition = p;
+    public void setWinningPosition(int[] winningPosition) {
+        this.winningPosition = winningPosition;
+    }
+
+    public int[] getPlayerPosition() {
+        return playerPosition;
+    }
+    public void setPlayerPosition(int[] playerPosition) {
+        this.playerPosition = playerPosition;
     }
 
     /**
